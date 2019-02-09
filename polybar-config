@@ -1,0 +1,225 @@
+[bar/i3wmthemer_bar]
+width = 100%
+height = 23
+radius = 0
+fixed-center = false
+
+background = #1e1e20
+foreground = #c5c8c6
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Material Icons:size=12;2"
+
+modules-left = i3
+modules-center = 
+modules-right = volume battery wlan eth date
+
+tray-position =
+;tray-padding =
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #1e1e20
+label-mode-background = #e39866
+
+label-focused = %index%
+label-focused-background = #dc7f41
+label-focused-foreground = #6b7443
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = #e39866
+label-unfocused-foreground = #1e1e20
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = #e39866
+label-visible-foreground = #1e1e20
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = #BA2922
+label-urgent-padding = 2
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <ramp-signal><label-connected>
+;label-connected-padding = 0
+label-connected-padding = 1
+label-connected = "W-"
+
+label-connected-foreground = #1e1e20
+label-connected-background = #c6723a
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+;ramp-signal-4 = ""
+
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 3.0
+
+format-connected-padding = 0
+format-connected-foreground = #e6a57a
+format-connected-background = #1e1e20
+format-connected-prefix = " "
+format-connected-prefix-foreground = #e6a57a
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+time = " %H:%M "
+time-alt = "%H:%M:%S "
+
+format-prefix = 
+format-foreground = #1e1e20
+format-background = #c6723a
+time-padding-left = 2
+
+label = %date% %time%
+
+[module/volume]
+type = internal/alsa
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+;headphone-id = 16
+;mapped = true
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+format-muted-prefix = "  "
+label-muted = ~
+format-volume-foreground = #1e1e20
+format-volume-background = #c6723a
+format-muted-foreground = #1e1e20
+format-muted-background = #c6723a
+
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-3 = " "
+ramp-volume-4 = " "
+ramp-volume-5 = " "
+ramp-volume-6 = " "
+
+[module/powermenu]
+type = custom/text
+content = 
+expand-right = true
+content-foreground = #1e1e20
+content-background = #c6723a
+content-spacing = 1
+
+label-open = 
+label-open-foreground = #e39866
+label-close =  cancel
+label-close-foreground = #e39866
+label-separator = |
+label-separator-foreground = #e6a57a
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = log off
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = log off
+menu-3-0-exec = pkill -KILL -u $USER
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ADP1
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+;label-charging = %percentage%% (%time%)
+label-charging = %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+;label-discharging = %percentage%% (%time%)
+label-discharging = %percentage%%
+format-full = <label-full>
+format-discharging-foreground = #1e1e20
+format-discharging-background = #c6723a
+format-charging-foreground = #1e1e20
+format-charging-background = #c6723a
+format-discharging-padding = 1
+format-charging-padding = 1
+
+format-full-prefix = " "
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+bar-capacity-width = 10
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+
+animation-charging-framerate = 750
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+

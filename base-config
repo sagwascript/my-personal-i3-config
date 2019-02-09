@@ -1,0 +1,14 @@
+Fonts
+monospace : Hack Semibold 11
+system : Roboto
+
+GTK
+Theme : Amber Dark
+Terminal : Argonaut
+
+Important Pkgs
+zsh
+tmux
+
+Kernel params :
+quiet acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=vendor
