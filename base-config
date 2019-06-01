@@ -3,12 +3,17 @@ monospace : Hack Semibold 11
 system : Roboto
 
 GTK
+==GNOME==
 Theme : Amber Dark
 Terminal : Argonaut
+
+==I3==
+Theme : Adwaita Dark
+Terminal : Darkside Customed
 
 Important Pkgs
 zsh
 tmux
 
 Kernel params :
-quiet acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=vendor
+quiet acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=vendor processor.ignore_ppc=1 i842.nopnp
