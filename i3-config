@@ -1,7 +1,7 @@
 set $mod Mod4
 
-new_window pixel 1
-new_float normal
+new_window none
+new_float none
 
 hide_edge_borders none
 default_border none
@@ -11,17 +11,21 @@ bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
-font pango:Hack Semibold 9
+font pango:Hack Semibold 0
 
 floating_modifier $mod
 
 bindsym $mod+Return exec gnome-terminal
 
+# Open file manager
+bindsym Mod1+e exec nautilus
+
 # Window kill command
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym Mod1+d exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+j focus left
@@ -210,6 +214,7 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id ~/.custom-command/tpad_on
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -219,13 +224,13 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
 
 # Theme colors
-client.focused #e39866 #1e1e20 #e39866 #e39866 #e39866
-client.focused_inactive #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.unfocused #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.urgent #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.placeholder #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
+client.focused #2A2A2A #2A2A2A #FFFFFF #233f66 #233f66
+client.focused_inactive #2A2A2A #2A2A2A #15539E #233f66 #233f66
+client.unfocused #2A2A2A #2A2A2A #15539E #233f66 #233f66
+client.urgent #2A2A2A #2A2A2A #15539E #233f66 #233f66
+client.placeholder #2A2A2A #2A2A2A #15539E #233f66 #233f66
 
-client.background #1e1e20
+client.background #2A2A2A
 
 # Gaps
 gaps inner 10
