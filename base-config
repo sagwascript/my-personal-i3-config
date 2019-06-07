@@ -15,5 +15,7 @@ Important Pkgs
 zsh
 tmux
 
+Remember to install compton
+
 Kernel params :
 quiet acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=vendor processor.ignore_ppc=1 i842.nopnp
